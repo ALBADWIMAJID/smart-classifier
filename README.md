@@ -19,19 +19,32 @@ A deep learning project using **MobileNetV2** and **Streamlit** to classify real
 
 ## 📂 Project Structure
 
-.
+
 ├── app.py # Streamlit web interface
+
 ├── analyze_dataset.py # Dataset summary generator
+
 ├── fine_tune_mobilenet.py # Main training script using MobileNetV2
+
 ├── unfreeze_model.py # Extra fine-tuning with frozen layers
+
 ├── download_images_full.py # Downloads images from Bing
+
 ├── models/
+
 │ ├── mobilenet_finetuned.h5
+
 │ ├── class_names.json
+
 │ ├── fine_tune_plot.png
+
 │ ├── fine_tune_results.csv
+
 │ └── best_model.h5
+
 ├── requirements.txt
+
+
 └── README.md
 
 
