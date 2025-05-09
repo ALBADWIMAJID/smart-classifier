@@ -1,99 +1,96 @@
+# 🧠 Smart Image Classifier
 
-# 🧠 Custom Smart Classifier
-
-A deep learning project using **MobileNetV2** and **Streamlit** to classify real-world images into 39 everyday categories (animals, devices, furniture, etc.).
-
-📌 Built and fine-tuned as part of a graduation project by **Аль-Бадви Маджед Башир**, ВолгГТУ, ИВТ-363.
+A deep learning project that classifies real-world images (animals, vehicles, devices, etc.) using a fine-tuned [MobileNetV2](https://keras.io/api/applications/mobilenet/) model.  
+The app is deployed using [Streamlit Cloud](https://streamlit.io/cloud).
 
 ---
 
-## 🚀 Features
+## 🚀 Demo
 
-- ✅ Fine-tuned MobileNetV2 model for multi-class image classification
-- 🖼️ Upload or paste URL of an image via Streamlit UI
-- 📈 Visualize training accuracy/loss curves
-- 📊 Dataset analysis (CSV + PNG + PDF)
-- 📦 Includes full training, fine-tuning & evaluation scripts
+🔗 [Live App on Streamlit](https://smart-classifier-rzrzydeb6raves5mx9scuq.streamlit.app)
+
+You can upload an image or paste a link, and the model will instantly predict the object and show class probabilities.
 
 ---
 
-## 📂 Project Structure
+## 🧩 Features
 
+- Fine-tuned CNN (MobileNetV2) on custom dataset (39 categories)
+- Real-time image classification via web interface
+- Shows:
+  - Predicted class
+  - Confidence level
+  - Top-3 predictions
+  - All class probabilities (bar chart)
+- Download prediction as JSON
+- History tracking of predictions
+- Streamlit-based frontend (dark style + responsive)
 
-├── app.py # Streamlit web interface
+---
 
-├── analyze_dataset.py # Dataset summary generator
+## 🗂 Dataset
 
-├── fine_tune_mobilenet.py # Main training script using MobileNetV2
+Custom dataset built from:
+- 🔍 `icrawler` (Bing Images)
+- 📦 [OpenImages V7](https://storage.googleapis.com/openimages/web/index.html)
 
-├── unfreeze_model.py # Extra fine-tuning with frozen layers
+Includes 39 classes like:
 
-├── download_images_full.py # Downloads images from Bing
+```text
+cat, dog, lion, elephant, zebra, car, truck, airplane, train, phone, television, book, laptop, chair, keyboard, sofa, fridge, fan, motorcycle, etc.
+🛠️ Tech Stack
+TensorFlow / Keras (model training)
+
+MobileNetV2 (base model)
+
+Streamlit (web app)
+
+Pandas, Matplotlib, icrawler
+
+h5, json, csv (export results)
+
+📦 Installation
+
+git clone https://github.com/ALBADWIMAJID/smart-classifier.git
+cd smart-classifier
+pip install -r requirements.txt
+streamlit run app.py
+🖼️ Example
+<img src="models/fine_tune_plot.png" width="650"> <p align="left"> <img src="https://smart-classifier-rzrzydeb6raves5mx9scuq.streamlit.app/static/media/logo.8000b7a5.svg" width="30"/> <b>Predicted:</b> Phone<br> <b>Confidence:</b> 86.07% </p>
+📁 Project Structure
+
+├── app.py                     # Streamlit app
+
+├── fine_tune_mobilenet.py     # Training code
+
+├── unfreeze_model.py          # Optional: unfreeze base layers
+
+├── analyze_dataset.py         # Dataset analysis tool
+
+├── download_images_full.py    # Download script (icrawler)
 
 ├── models/
 
-│ ├── mobilenet_finetuned.h5
+│   ├── mobilenet_finetuned.h5
 
-│ ├── class_names.json
+│   ├── fine_tune_plot.png
 
-│ ├── fine_tune_plot.png
+│   └── class_names.json
 
-│ ├── fine_tune_results.csv
-
-│ └── best_model.h5
+├── dataset/                   # Image dataset (39 classes)
 
 ├── requirements.txt
 
-
 └── README.md
 
+📊 Results
 
+Final validation accuracy: ~85% after fine-tuning
+Includes detailed metrics (CSV + plots)
 
----
+📚 License
+This project is under the MIT License.
 
-## 💻 Run Locally
+Made with ❤️ by ALBADWIMAJID
 
-### 1. Clone the repo
-```bash
-git clone https://github.com/ALBADWIMAJID/smart-classifier.git
-cd smart-classifier
-2. Install dependencies
-
-pip install -r requirements.txt
-3. Run the Streamlit app
-
-streamlit run app.py
-🌐 Try it online (Streamlit Cloud)
-
-(⚠️ Add your actual link after deployment)
-
-📊 Example Predictions
-Example	Prediction
-phone (86.07%)
-cat (99.92%)
-cow (98.72%)
-
-🧪 Dataset
-Source: Bing + OpenImages (custom script)
-
-Classes: 39
-
-Images per class: ~300–1000
-
-Total: ~6200 images
-
-📈 Training Results
-Model: MobileNetV2 (pre-trained on ImageNet)
-
-Final accuracy: ~87% validation
-
-Loss and accuracy plots saved in models/fine_tune_plot.png
-
-👨‍🎓 Author
-Аль-Бадви Маджед Башир
-ИВТ-363, ВолгГТУ
-2025
-
-📄 License
-This project is for educational and demonstration purposes only.
 
